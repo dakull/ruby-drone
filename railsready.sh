@@ -47,8 +47,10 @@ cd && mkdir -p railsready/src && cd railsready && touch install.log
 echo "==> done..."
 
 echo -e "\n=> Downloading and running recipe for $distro...\n"
+
 # Download the distro specific recipe and run it, passing along all the variables as args
 # Install build tools
+pm='apt-get'
 echo -e "\n=> Installing build tools..."
 sudo $pm -y install \
     wget curl build-essential clang \
