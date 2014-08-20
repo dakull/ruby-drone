@@ -74,6 +74,11 @@ echo "==> done..."
 echo -e "\n=> Installing git, htop and vim..."
 sudo $pm -y install git-core htop vim >> $log_file 2>&1
 echo "==> done..."
+
+# Install nginx
+echo -e "\n=> Installing nginx..."
+sudo $pm -y install nginx >> $log_file 2>&1
+echo "==> done..."
 echo -e "\n==> done running $distro specific commands..."
 
 # Install Ruby-install
@@ -105,7 +110,7 @@ echo "==> done..."
 
 # Update bashrc and bashprofile
 echo -e "\n=> Update bashrc and bash_profile with default chruby \n"
-cat > ~/.bashrc <<DELIM
+cat >> ~/.bashrc <<DELIM
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 chruby ruby-2.1.2
@@ -115,9 +120,7 @@ echo "==> done..."
 
 # Reload bash
 echo -e "\n=> Reloading shell so ruby and rubygems are available..."
-if [ -f ~/.bashrc ] ; then
-  source ~/.bashrc
-fi
+source ~/.bashrc
 echo "==> done..."
 
 echo -e "\n=> Updating Rubygems..."
