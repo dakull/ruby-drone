@@ -62,6 +62,10 @@ sudo $pm -y install \
     libtool >> $log_file 2>&1
 echo "==> done..."
 
+echo -e "\n=> Run update..."
+sudo $pm -y update >> $log_file 2>&1
+echo "==> done..."
+
 echo -e "\n=> Installing redis-server..."
 sudo $pm -y install redis-server >> $log_file 2>&1
 echo "==> done..."
