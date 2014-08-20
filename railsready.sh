@@ -51,6 +51,10 @@ echo -e "\n=> Downloading and running recipe for $distro...\n"
 # Download the distro specific recipe and run it, passing along all the variables as args
 # Install build tools
 pm='apt-get'
+echo -e "\n=> Run update..."
+sudo $pm -y update >> $log_file 2>&1
+echo "==> done..."
+
 echo -e "\n=> Installing build tools..."
 sudo $pm -y install \
     wget curl build-essential clang \
@@ -60,10 +64,6 @@ sudo $pm -y install \
     libxslt-dev autoconf libc6-dev \
     libreadline6-dev zlib1g-dev libcurl4-openssl-dev \
     libtool >> $log_file 2>&1
-echo "==> done..."
-
-echo -e "\n=> Run update..."
-sudo $pm -y update >> $log_file 2>&1
 echo "==> done..."
 
 echo -e "\n=> Installing redis-server..."
