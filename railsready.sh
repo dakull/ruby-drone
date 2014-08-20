@@ -98,9 +98,20 @@ echo -e "\n=> Building chruby..."
 cd chruby-0.3.8 && sudo make install >> $log_file 2>&1
 echo "==> done..."
 
+# Install Ruby stable
+echo -e "\n=> Compiling Ruby 2.1.2 \n"
+ruby-install ruby 2.1.2
+echo "==> done..."
+
 # Update bashrc and bashprofile
-echo "source /usr/local/share/chruby/chruby.sh \n source /usr/local/share/chruby/auto.sh \n chruby ruby-2.1.2" >> ~/.bashrc 2>&1
+echo -e "\n=> Update bashrc and bash_profile with default chruby \n"
+cat > ~/.bashrc <<DELIM
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby ruby-2.1.2
+DELIM
 echo "source ~/.bashrc" >> ~/.bash_profile 2>&1
+echo "==> done..."
 
 # Reload bash
 echo -e "\n=> Reloading shell so ruby and rubygems are available..."
