@@ -124,7 +124,12 @@ echo "==> done..."
 
 # Reload bash
 echo -e "\n=> Reloading shell so ruby and rubygems are available..."
-source ~/.bashrc
+if [ -f ~/.bashrc ] ; then
+  source ~/.bashrc
+fi
+if [ -f ~/.bash_profile ] ; then
+  source ~/.bash_profile
+fi
 echo "==> done..."
 
 echo -e "\n=> Updating Rubygems..."
