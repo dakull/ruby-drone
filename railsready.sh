@@ -1,14 +1,14 @@
 #!/bin/bash
 #
-# Rails Ready
+# Based on Rails Ready
 #
-# Author: Josh Frye <joshfng@gmail.com>
+# Original Author: Josh Frye <joshfng@gmail.com>
 # Licence: MIT
 #
 # Contributions from: Wayne E. Seguin <wayneeseguin@gmail.com>
 # Contributions from: Ryan McGeary <ryan@mcgeary.org>
+# Contributions from: Marian Posaceanu
 #
-# http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz
 shopt -s nocaseglob
 set -e
 
@@ -46,9 +46,6 @@ echo -e "\n=> Creating install dir..."
 cd && mkdir -p railsready/src && cd railsready && touch install.log
 echo "==> done..."
 
-echo -e "\n=> Downloading and running recipe for $distro...\n"
-
-# Download the distro specific recipe and run it, passing along all the variables as args
 # Install build tools
 pm='apt-get'
 echo -e "\n=> Run update..."
