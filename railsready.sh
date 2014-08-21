@@ -124,20 +124,15 @@ echo "==> done..."
 
 # Reload bash
 echo -e "\n=> Reloading shell so ruby and rubygems are available..."
-if [ -f ~/.bashrc ] ; then
-  source ~/.bashrc
-fi
-if [ -f ~/.bash_profile ] ; then
-  source ~/.bash_profile
-fi
+source ~/.bashrc
 echo "==> done..."
 
 echo -e "\n=> Updating Rubygems..."
-gem update --system --no-ri --no-rdoc >> $log_file 2>&1
+source ~/.bashrc && gem update --system --no-ri --no-rdoc >> $log_file 2>&1
 echo "==> done..."
 
 echo -e "\n=> Installing Bundler..."
-gem install bundler --no-ri --no-rdoc -f >> $log_file 2>&1
+source ~/.bashrc && gem install bundler --no-ri --no-rdoc -f >> $log_file 2>&1
 echo "==> done..."
 
 echo -e "\n#################################"
