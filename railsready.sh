@@ -67,9 +67,9 @@ echo -e "\n=> Installing redis-server..."
 sudo $pm -y install redis-server >> $log_file 2>&1
 echo "==> done..."
 
-echo -e "\n=> Installing imagemagick..."
-sudo $pm -y install imagemagick libmagickwand-dev >> $log_file 2>&1
-echo "==> done..."
+# echo -e "\n=> Installing imagemagick..."
+# sudo $pm -y install imagemagick libmagickwand-dev >> $log_file 2>&1
+# echo "==> done..."
 
 # Install git-core
 echo -e "\n=> Installing git, htop and vim..."
