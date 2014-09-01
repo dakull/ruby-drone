@@ -117,6 +117,7 @@ source /usr/local/share/chruby/auto.sh
 chruby ruby-2.1.2
 DELIM
 echo "source ~/.bashrc" >> ~/.bash_profile 2>&1
+echo "source ~/.bashrc" >> ~/.profile 2>&1
 echo "==> done..."
 
 # Reload bash
