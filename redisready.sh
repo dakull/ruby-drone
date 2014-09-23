@@ -44,7 +44,7 @@ echo -e "\n=> Creating install dir..."
 cd && mkdir -p redisready/src && cd redisready && touch install.log
 echo "==> done..."
 
-echo -e "\n\n!!! Set to install chruby via ruby-install for user: $script_runner !!! \n"
+echo -e "\n\n!!! Set to install Redis server for user: $script_runner !!! \n"
 
 pm='apt-get'
 echo -e "\n=> Run apt-get update..."
