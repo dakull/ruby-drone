@@ -59,6 +59,7 @@ random_pass=`cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | fold 
 require_pass_directive="requirepass $random_pass"
 echo -e "\n=> Generated password is: $random_pass"
 echo $random_pass >> $log_file 2>&1
+echo "requirepass $random_pass" | sudo tee -a /etc/redis/redis.conf 2>&1
 sudo sed -i "s/^requirepass .*$/requirepass $random_pass/" /etc/redis/redis.conf 2>&1
 echo -e "\n=> Updated Redis password"
 sudo service redis-server stop
