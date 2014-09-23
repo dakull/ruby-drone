@@ -55,6 +55,16 @@ echo -e "\n=> Installing redis-server..."
 sudo $pm -y install redis-server >> $log_file 2>&1
 echo "==> done..."
 
+random_pass=`cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | fold -w 20 | head -n 1 | md5sum  | awk '{ print $1 }'`
+require_pass_directive="requirepass $random_pass"
+echo -e "\n=> Generated password is: $random_pass"
+echo $random_pass >> $log_file 2>&1
+sudo sed -i "s/^requirepass .*$/requirepass $random_pass/" /etc/redis/redis.conf 2>&1
+echo -e "\n=> Updated Redis password"
+sudo service redis-server stop
+sudo service redis-server start
+echo -e "\n=> Restarted Redis"
+
 echo -e "\n#################################"
 echo    "### Installation is complete! ###"
 echo -e "#################################\n"
